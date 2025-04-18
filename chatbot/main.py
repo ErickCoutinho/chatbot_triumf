@@ -47,12 +47,7 @@ def process_input(query):
     return chat_with_memory.invoke({"input": query}, config).content
 
 
-"""if __name__ == "__main__":
-    print("Chat iniciado com Erick (Triumf). Digite 'sair' para encerrar.\n")
-    while True:
-        user_input = input("Cliente: ")
-        if user_input.lower() in ["sair", "exit", "quit"]:
-            print("Erick: Valeu! Qualquer coisa, chama.")
-            break
-        resposta = process_input(user_input)
-        print("Erick:", resposta, "\n")"""
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
