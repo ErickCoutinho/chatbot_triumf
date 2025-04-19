@@ -39,7 +39,7 @@ export const ChatProvider: React.FC<ChatProviderProps> = ({ children }) => {
       setIsTyping(true);
 
       try {
-        const res = await fetch("http://localhost:8000/chat", {
+        const res = await fetch("https://chatbot-triumf.up.railway.app/chat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
