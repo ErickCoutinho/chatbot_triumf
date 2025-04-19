@@ -1,1 +1,1 @@
-web: python chatbot/run.py
+web: python -m chatbot.run
