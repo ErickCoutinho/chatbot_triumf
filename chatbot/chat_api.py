@@ -27,4 +27,4 @@ async def chat_endpoint(chat_message: ChatMessage):
     return {"response": response}
 
 
-app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
+app.mount("/", StaticFiles(directory="front_QA/dist", html=True), name="static")
