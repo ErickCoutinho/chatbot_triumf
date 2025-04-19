@@ -3,6 +3,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from chatbot.main import process_input
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -24,3 +25,6 @@ class ChatMessage(BaseModel):
 async def chat_endpoint(chat_message: ChatMessage):
     response = process_input(chat_message.message)
     return {"response": response}
+
+
+app.mount("/", StaticFiles(directory="frontend/dist", html=True), name="static")
