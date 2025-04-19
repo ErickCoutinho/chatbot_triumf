@@ -45,9 +45,3 @@ chat_with_memory = RunnableWithMessageHistory(
 def process_input(query):
     config = {"configurable": {"session_id": "test-session"}}
     return chat_with_memory.invoke({"input": query}, config).content
-
-
-if __name__ == "__main__":
-    import uvicorn
-    port = int(os.environ.get("PORT", 8000))
-    uvicorn.run("main:app", host="0.0.0.0", port=port)
